@@ -17,7 +17,7 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDAO 
 
 	// Add Customer
 	public void addCustomer(final CustomerTO cto) {
-		Customer cust = getHibernateTemplate().execute(new HibernateCallback() {
+		Customer cust = (Customer)getHibernateTemplate().execute(new HibernateCallback() {
 			public Customer doInHibernate(Session session)
 					throws HibernateException {
 				Customer cust = new Customer(cto.getFirstName(), cto
